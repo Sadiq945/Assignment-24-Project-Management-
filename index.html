@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+     
+    <style>
+      .spinner {
+        width: 50px;
+        height: 50px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #007bff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      .badge-completed { background-color: #28a745; }
+      .badge-progress { background-color: #ffc107; color: #000; }
+      .priority-high { background-color: #dc3545; }
+      .priority-medium { background-color: #fd7e14; }
+      .priority-low { background-color: #6c757d; }
+      .badge { padding: 5px 10px; border-radius: 20px; font-size: 12px; }
+
+    </style>
+
+
+  </head>
+  <body>
+    <div class="container mt-4">
+       <h1 class="text-center text-primary">📊 Project Management Dashboard</h1>
+
+        <div class="row g-2 mb-4">
+        <div class="col-md-4">
+
+         
+            <input type="text" id="searchInput" class="form-control" placeholder="Search by project name...">
+
+            
+          </div>
+
+        <div class="col-md-3">
+          <select id="statusFilter" class="form-control">
+            <option value="all">📋 All Status</option>
+            <option value="Completed">✅ Completed</option>
+            <option value="In Progress">⚡ In Progress</option>
+          </select>
+      </div>
+      <div class="col-md-3">
+          <select id="priorityFilter" class="form-control">
+            <option value="all">🎯 All Priority</option>
+            <option value="High">🔴 High</option>
+            <option value="Medium">🟠 Medium</option>
+            <option value="Low">⚪ Low</option>
+          </select>
+        </div>
+
+        <div class="col-md-2">
+          <button id="resetBtn" class="btn btn-secondary w-100">Reset</button>
+        </div>
+      </div>
+
+      <div id="spinner" class="spinner" style="display: none;"></div>
+
+      <div id="tableContainer">
+        <table class="table table-bordered table-striped table-hover">
+          <thead class="table-dark">
+            <tr>
+              <th>ID</th><th>Project Name</th><th>Details</th><th>Start Date</th><th>End Date</th><th>Priority</th><th>Department</th><th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="projectsTableBody"></tbody>
+        </table>
+      </div>
+
+      <nav>
+        <ul class="pagination justify-content-center" id="pagination"></ul>
+      </nav>
+      
+      <div id="info" class="text-center text-muted mt-2"></div>
+    </div>
+
+      
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+  </body>
+</html>
